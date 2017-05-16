@@ -10,18 +10,18 @@ $gender=$_POST['Gender'];
 $Udate=$_POST['datepicker'];
 $bio=$_POST['textarea'];
 $checkbox=$_POST['checkbox'];
-$sql = "INSERT INTO users (first, last, Uid, Pwd, gender, Udate, bio, checkbox) 
-VALUES ('$first', '$last', '$Uid', '$Pwd', '$gender', '$Udate', '$bio', '$checkbox')";
-$result = $conn->query($sql);
-  
 if ( $_SERVER ['REQUEST_METHOD'] == 'POST')    {
     if (!empty($first) && !empty($last) && 
        !empty($Uid) && !empty($Pwd) && ($Pwd == $Pwd2) 
        && isset($gender) && !empty($Udate) && 
        !empty($bio) && isset($checkbox)) {
-     	   header("Location: ../index.php");
+       	$sql = "INSERT INTO users (first, last, Uid, Pwd, gender, Udate, bio, checkbox) 
+        VALUES ('$first', '$last', '$Uid', '$Pwd', '$gender', '$Udate', '$bio', '$checkbox')";
+        $result = $conn->query($sql);
+     	header("Location: ../index.php");
+      } else {
+      	header("Location: ../signup.php?error=empty");
       }
+} 
+    
 ?>
-
-
-
