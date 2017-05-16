@@ -1,3 +1,14 @@
+header {
+	background-color: orange;
+}
+h1 {
+	margin-left: 530px;
+}
+ul {
+	margin-left: 700px;
+}
+
+
 table {
 	background-color: lightblue;
 	margin-left: 520px;

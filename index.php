@@ -1,3 +1,6 @@
+<?php 
+  session_start(); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +8,31 @@
     <link rel="stylesheet" type="text/css" href="Signupstyle.css">
 </head>
 <body>
-    <form action="include/signup.php" method="POST"> 
+    <header>
+    <ul>
+        <form action="includes/login.inc.php" method="POST">
+            User name:
+            <input type="text" name="Uid" placeholder="Username">
+            Password:
+            <input type="Password" name="Pwd" placeholder="Password">
+            <input type="Submit" name="button2" value="LOG IN">
+        </form>
+        <form action="includes/logout.inc.php">
+            <input type="Submit" name="button" value="LOG OUT">
+        </form>
+    </ul>    
+    </header>
+    <h1>
+    <?php 
+    if (isset($_SESSION['Id'])) {
+        echo "You are logged in as number: ". $_SESSION['Id'];
+    } else {
+        echo "You are not logged in!";
+    }
+
+     ?>
+     </h1>
+    <form action="includes/signup.php" method="POST"> 
         <table>
             <tr>   
                 <td>Firstname:</td>
@@ -46,7 +73,7 @@
                 <td>Are you 18 years old?:</td> <td><input type="checkbox" name="checkbox"></td>
             </tr>    
             <tr>    
-                <td><input type="Submit" name="button" value="Sign up"></td>
+                <td><input type="Submit" name="button" value="SIGN UP"></td>
             </tr>
         </table>
     </form>
